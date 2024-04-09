@@ -3,7 +3,7 @@
 #include "dwgobject.h"
 #include <QMainWindow>
 #include <QMouseEvent>
-
+#include <QDebug>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
