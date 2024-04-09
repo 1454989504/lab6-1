@@ -19,6 +19,8 @@ enum DrawType
 };
 class MainWindow : public QMainWindow
 {
+    qreal m_winScale = 1.0;            	// 用于记录视图缩放的比例的变量
+    QTransform m_trans;                	// 用于记录当前视图的变换矩阵的变量
     Q_OBJECT
 
 public:
@@ -46,10 +48,20 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QVector<DwgObject*> mObjVec;
 
     // QWidget interface
 protected:
     virtual void paintEvent(QPaintEvent *event);
     virtual void mousePressEvent(QMouseEvent *event);
+
+    // QWidget interface
+protected:
+    virtual void wheelEvent(QWheelEvent *event);
+
+    // QWidget interface
+protected:
+    virtual void mouseMoveEvent(QMouseEvent *event);
 };
+
 #endif // MAINWINDOW_H
